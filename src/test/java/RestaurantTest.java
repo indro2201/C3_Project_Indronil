@@ -88,5 +88,21 @@ class RestaurantTest {
 
         assertNotEquals(restaurant.getMenu().size(),0);
     }
+
+    //Added test cases for TDD for getOrderAmount method
+
+    @Test
+    public void get_Price_should_return_order_total_when_list_of_items_is_passed(){
+        restaurantInit();
+        String[] selectedItems={"Sweet corn soup","Vegetable lasagne"};
+        assertEquals(restaurant.getOrderAmount(selectedItems),388);
+    }
+
+    @Test
+    public void get_Price_should_return_zero_when_no_item_is_selected(){
+        restaurantInit();
+        String[] selectedItems={};
+        assertEquals(restaurant.getOrderAmount(selectedItems),0);
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
