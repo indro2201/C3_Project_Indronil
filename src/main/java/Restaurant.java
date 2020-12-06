@@ -43,6 +43,14 @@ public class Restaurant {
         return null;
     }
 
+    public int getOrderAmount(String[] Item) {
+        int orderAmount=0;
+        for(String item: Item){
+            orderAmount = orderAmount + findItemByName(item).getPrice();
+        }
+        return orderAmount;
+    }
+
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name, price);
         menu.add(newItem);
